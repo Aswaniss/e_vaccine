@@ -69,6 +69,7 @@ def formupdate(request,u_id):
 def show_index(request):
     return render(request, "index.html")
     
-        
+def hotel_plan(request): 
+    return render (request,"hotel_plan.html")    
     
     
