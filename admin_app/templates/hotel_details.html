@@ -1,0 +1,11 @@
+<html>
+    <head><title>Hotel details</title></head>
+     {% for i in data %}
+    <body>
+        <h1>HotelName:{{i.hotelName}}</h1>
+        <h3>hotelDescription:{{i.hotelDescription}}</h3>
+        <h3>BookingPrice:{{i.bookingPrice}}</h3>
+        <hr>
+        {% endfor %}
+    </body>
+</html>

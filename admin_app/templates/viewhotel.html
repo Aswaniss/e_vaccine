@@ -1,0 +1,49 @@
+
+<html>
+<head>
+    <title>Hotel List</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Hotel List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Hotel Name</th>
+                <th>Description</th>
+                <th>Booking Price (₹)</th>
+                <th>image:</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.hotelName }}</td>
+                <td>{{ i.hotelDescription }}</td>
+                <td>{{ i.bookingPrice }}</td>
+                <td> <img src="{{i.image.url}}" alt="default_img" style="width: 150px; height: auto;"></td><br><br>
+                <td><a href="{% url "hoteldetails" i.id %}"><button> view more</button></td></a>
+                <td><a href=" {% url "formupdate" i.id %}"><button>Update</button></td></a>
+            
+            </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

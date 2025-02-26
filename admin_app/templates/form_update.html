@@ -1,0 +1,33 @@
+
+<html>
+<head>
+    <title>Form Hotel</title>
+</head>
+
+<body>
+    <h1>Create Hotel</h1>
+    {% for i in data %}
+    <form action="{% url "formupdate" i.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      
+        <label for="hotelName">Hotel Name:</label>
+        <input type="text" id="hotelName" name="hotelName" required maxlength="255" value="{{i.hotelName}}"><br><br>
+        <br><br>
+
+        <label for="hotelDescription">Hotel Description:</label><br>
+        <textarea id="hotelDescription" name="hotelDescription" rows="4" cols="50">{{i.hotelDescription}}</textarea><br><br>
+   
+        <label for="bookingPrice">Booking Price (₹):</label>
+        <input type="number" id="bookingPrice" name="bookingPrice" value="{{i.bookingPrice}}"><br>
+        <br><br>
+
+        <label for="image"> Image:</label>
+        <input type="File" id="image" name="image">
+
+
+        <button type="submit">Save</button>
+    </form>
+    <hr>
+    {% endfor %}
+</body>
+</html>
